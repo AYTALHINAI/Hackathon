@@ -19,7 +19,7 @@ import withReactContent from "sweetalert2-react-content";
 import { useTheme } from "../context/ThemeContext";
 import { useSettings } from "../context/SettingsContext";
 import toast from "react-hot-toast";
-import marenLogo from "../../assets/images/lOGO.svg";
+// import marenLogo from "../../assets/images/lOGO.svg";
 
 const Sidebar = () => {
   const navigate = useNavigate();
@@ -155,9 +155,13 @@ const Sidebar = () => {
           >
             <div className="flex flex-col items-center border-b border-white/30 pb-3">
                              <img
-                 src={marenLogo}
+                 src="/assets/images/lOGO.svg"
                  alt="Maren Logo"
                  className="w-20 h-20 mb-2 filter brightness-0 invert"
+                 onError={(e) => {
+                   console.log('Logo failed to load:', e.target.src);
+                   e.target.style.display = 'none';
+                 }}
                />
             </div>
           </div>

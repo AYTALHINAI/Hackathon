@@ -48,7 +48,10 @@ const LoginPage = () => {
     <div className="min-h-screen flex flex-col items-center justify-center p-4 bg-white" dir="rtl">
       {/* Logo */}
       <div className="mb-8">
-        <img src="/assets/images/lOGO.svg" alt="MAREN Logo" className="h-20 w-auto" />
+        <img src="/assets/images/lOGO.svg" alt="MAREN Logo" className="h-20 w-auto" onError={(e) => {
+          console.log('Logo failed to load:', e.target.src);
+          e.target.style.display = 'none';
+        }} />
       </div>
 
       {/* Login Card */}
