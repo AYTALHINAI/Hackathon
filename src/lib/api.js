@@ -1,13 +1,11 @@
-// API Base URL
-const API_BASE_URL = import.meta.env.VITE_API_URL || 
-  (import.meta.env.MODE === 'production' 
-    ? "https://maren-backend.onrender.com/api" 
-    : "http://localhost:5000/api");
+// API Base URL - Force production URL for now
+const API_BASE_URL = "https://maren-backend.onrender.com/api";
 
 // Debug logging
 console.log('API Base URL:', API_BASE_URL);
 console.log('Environment:', import.meta.env.MODE);
 console.log('VITE_API_URL:', import.meta.env.VITE_API_URL);
+console.log('Full API URL being used:', API_BASE_URL);
 
 // Enhanced error handling for API calls
 class APIError extends Error {
@@ -40,8 +38,9 @@ export const apiRequest = async (endpoint, options = {}) => {
     console.log('API Response data:', data);
 
     if (!response.ok) {
+      console.error('API Error - URL:', url, 'Status:', response.status, 'Data:', data);
       throw new APIError(
-        data.message || `HTTP error! status: ${response.status}`,
+        data.message || `HTTP error! status: ${response.status} for URL: ${url}`,
         response.status,
         data
       );
