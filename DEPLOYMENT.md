@@ -70,7 +70,7 @@ Click **"Create Web Service"** and wait for deployment.
 - **Root Directory**: Leave empty
 
 **Build & Deploy Settings:**
-- **Build Command**: `npm install && npm run build`
+- **Build Command**: `npm ci && npm run build`
 - **Publish Directory**: `dist`
 
 ### 3.2 Environment Variables
