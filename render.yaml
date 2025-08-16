@@ -1,0 +1,26 @@
+services:
+  # Backend API Service
+  - type: web
+    name: maren-backend
+    env: node
+    plan: free
+    buildCommand: cd server && npm install
+    startCommand: cd server && npm start
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: PORT
+        value: 10000
+      - key: MONGO_URI
+        sync: false  # This will be set in Render dashboard
+
+  # Frontend Static Site
+  - type: web
+    name: maren-frontend
+    env: static
+    plan: free
+    buildCommand: npm install && npm run build
+    staticPublishPath: ./dist
+    envVars:
+      - key: VITE_API_URL
+        value: https://maren-backend.onrender.com
