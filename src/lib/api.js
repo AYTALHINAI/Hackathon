@@ -20,7 +20,9 @@ class APIError extends Error {
 // Generic API request function with error handling
 export const apiRequest = async (endpoint, options = {}) => {
   try {
-    const url = `${API_BASE_URL}${endpoint}`;
+    // Add cache-busting parameter
+    const separator = endpoint.includes('?') ? '&' : '?';
+    const url = `${API_BASE_URL}${endpoint}${separator}_t=${Date.now()}`;
     console.log('Making API request to:', url);
     
     const config = {
