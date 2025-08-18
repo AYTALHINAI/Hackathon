@@ -88,7 +88,7 @@ const LoginPage = () => {
           {/* Password Field */}
           <div>
             <label htmlFor="password" className="block text-sm font-medium text-gray-700 mb-2">
-              كلمة المرور
+              1 كلمة المرور
             </label>
             <input
               id="password"
