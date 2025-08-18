@@ -58,7 +58,7 @@ const LoginPage = () => {
       <div className="w-full max-w-md bg-white rounded-lg shadow-lg border border-gray-200 p-8">
         {/* Header */}
         <div className="mb-6">
-          <h2 className="text-2xl font-bold text-gray-900 mb-2">تسجيل grkdmgklrmglmالدخول إلى حسابك</h2>
+          <h2 className="text-2xl font-bold text-gray-900 mb-2">تسجيل الدخول إلى حسابك</h2>
           <p className="text-sm text-gray-600">أدخل بريدك الإلكتروني أدناه لتسجيل الدخول إلى حسابك</p>
         </div>
 
